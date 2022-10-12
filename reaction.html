@@ -87,10 +87,10 @@
                 myTime=undefined;
                 let countdown = Math.floor(Math.random() * 9) + 2
                 console.log()
-                for(let i = 0; i < countdown; i++) {
+                for(let count = 0; count < countdown; count++) {
                     setTimeout(() => {
-                        document.getElementById("countdown").innerHTML = i
-                    }, ((countdown-1-i)*1000));
+                        document.getElementById("countdown").innerHTML = count
+                    }, ((countdown-1-count)*1000));
                 }
                 setTimeout(() => {
                     if(myTime == undefined) {

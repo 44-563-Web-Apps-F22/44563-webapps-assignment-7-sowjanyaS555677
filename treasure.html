@@ -42,7 +42,7 @@
                 background-color: rgb(0, 255, 0);
             }
             .score {
-                background-color: rgba(0, 200, 255, 0.92);
+                background-color: rgba(85, 0, 255, 0.92);
             }
             .help {
                 background-color: rgba(225, 144, 238, 0.785);
@@ -212,9 +212,9 @@
             }
         } else if(lastCheck_column == treasureLocation_column) {
             if(lastCheck_row < treasureLocation_row) {
-                document.getElementById("help").innerHTML = "Up"
-            } else if(lastCheck_row > treasureLocation_row) {
                 document.getElementById("help").innerHTML = "Down"
+            } else if(lastCheck_row > treasureLocation_row) {
+                document.getElementById("help").innerHTML = "Up"
             } else {
                 document.getElementById("help").innerHTML = "Sorry, no help available"
             }
