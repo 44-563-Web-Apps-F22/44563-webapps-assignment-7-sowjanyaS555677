@@ -24,7 +24,7 @@
             .menu {
                 background-color: #170a4d;
                 padding: 3px;
-                text-align: center;
+                text-align: left;
                 width: 500px;
                  margin-left: 300px;
             }
@@ -52,9 +52,9 @@
     <body>
         
         <div class="container text-center">
-            <h1>Sowjanya Ravella Reaction Timer</h1>
+            <h1>Sowjanya Ravella Timer</h1>
             <div class="row menu">
-                <div class="col-md">
+                <div class="col-md ">
                     <p id="target">Your time</p>
                 </div>
                 <div class="col-md">
@@ -84,6 +84,7 @@
 
            
             function startTime() {
+                myTime=undefined;
                 let countdown = Math.floor(Math.random() * 9) + 2
                 console.log()
                 for(let i = 0; i < countdown; i++) {

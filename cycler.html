@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Cycler</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Indie+Flower&display=swap" rel="stylesheet">
+        
+        <style>
+            h1 {
+               color: #949400d0;
+               font-family: Helvetica;
+               font-style: italic;
+               padding: 5px;
+               margin-bottom: 10px;
+            }
+            .menu {
+                background-color: #aeff4bf6;
+                padding: 3px;
+                text-align: left;
+                width: 500px;
+                 margin-left: 300px;
+            }
+            #target {
+                background-color: rgba(0, 255, 30, 0.719);
+                font-family: "sans-serif";
+                font-weight: 800;
+                font-size: 18px;
+                font-style: oblique;
+                margin: 6px;
+            }
+            #countdown {
+                background-color: rgba(144, 230, 238, 0.954);
+                font-family: "cursive";
+                font-style: italic;
+                font-weight: 800;
+                font-size: 18px;
+                margin: 6px;
+            }
+            button {
+                margin: 15px;
+            }
+            #inputElement {
+                width: 300px;
+                margin-left: 400px;
+            }
+            .message {
+                font-family: cursive;
+                font-style: oblique;
+                padding: 5px;
+            }
+            .cycler {
+                color: crimson;
+                font-size: 1.5em;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container text-left">
+            <h1>Sowjanya Ravella builds cycler</h1>
+            <div class="flex-container" id="target">
+                <div class="cycler">row item 1</div>   
+                <div class="cycler">row item 2</div>  
+                <div class="cycler">row item 3</div>  
+            </div>
+            <label for="inputElement">Type something: </label>
+            <input class="form-control" type="text" name="input" id="inputElement" value="">
+            <p class="message"> 
+                Press the button to create an new element of type div and then add it to the container.
+            </p>
+            <div class="container text-left">
+                <button class="btn btn-warning" type="submit" onclick="makeNewDiv()">Add Value</button>
+                <button class="btn btn-danger" type="submit" onclick="get()">Get</button>
+                <button class="btn btn-success" type="submit" onclick="spin()">Spin</button>
+                <button class="btn btn-primary" type="submit" onclick="swap()">Swap</button>
+            </div>
+        </div>
+        
+
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!-- Part 7 -->
+        <script>
+            function makeNewDiv() {
+                let element = document.createElement("div")
+                let value = document.getElementById("inputElement").value
+
+                element.innerHTML = value
+                element.className = "cycler"
+
+                let container = document.getElementById("target")
+                container.appendChild(element)
+            }
+
+            // Part 8
+            function get() {
+                let cyclerItems = document.getElementsByClassName("cycler")
+                if(cyclerItems.length > 0) {
+                    cyclerItems[cyclerItems.length-1].remove()
+                }
+            }
+
+            function spin() {
+                let cyclerItems = document.getElementsByClassName("cycler")
+                if(cyclerItems.length > 1) {
+                    removedItem = cyclerItems[cyclerItems.length-1]
+                    cyclerItems[cyclerItems.length-1].remove()
+                    let container = document.getElementById("target")
+                    container.insertBefore(removedItem, container.firstChild)
+                }
+            }
+
+            function swap() {
+                let cyclerItems = document.getElementsByClassName("cycler")
+                let container = document.getElementById("target")
+                let a = Math.floor(Math.random() * cyclerItems.length)
+                let b = Math.floor(Math.random() * cyclerItems.length)
+                let firstInnerText = document.getElementsByClassName("cycler")[a]
+                let secondInnerText = document.getElementsByClassName("cycler")[b]
+                if(cyclerItems.length > 1) {
+                    let temp = firstInnerText.innerHTML
+                    firstInnerText.innerHTML = secondInnerText.innerHTML
+                    secondInnerText.innerHTML = temp
+                }
+            }
+        </script>
+
+    </body>
+
+</html>
