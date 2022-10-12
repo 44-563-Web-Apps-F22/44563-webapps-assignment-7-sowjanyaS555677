@@ -222,7 +222,40 @@
             document.getElementById("help").innerHTML = "Sorry, no help available"
         }
     }
+
+
+    function newgame()
+        {
+            chestCount=0;
+            score=0;
+            hlp="";
+            document.getElementById("chests").innerHTML="Number of chests checked is zero "+chestCount;
+           document.getElementById("score").innerHTML="Score is unknown "+score;
+           document.getElementById("help").innerHTML="Help report "+hlp
+            treasureLocation=Math.floor(Math.random()*25)
+
+        }
+<button id="newGame" onclick="newgame()" style="background-color:lavender;border-radius: 10px;">new game</button>
+
+starting=Math.floor(Math.random()*11)+2;
+    for(i=starting;i>0;i--)
+    {
+      setTimeout(()=>{
+      document.getElementById('countdown').innerHTML = "Count "+i
+    }, (starting-1-i)*1000)
+	
+	function swap()
+	{
+		cyclerItems=document.getElementsByClassName("cycler")
+		a=Math.floor(Math.random()*(cyclerItems.length))
+		b=Math.floor(Math.random()*(cyclerItems.length))
+		c=cyclerItems[a].innerHTML;
+		cyclerItems[a].innerHTML=cyclerItems[b].innerHTML
+		cyclerItems[b].innerHTML=c
+	}
+	<button onclick="swap()" class="btn btn-warning">Swap</button>
 </script>
            
     </body>
+
 </html>
